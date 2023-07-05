@@ -10,42 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libftprintf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+static size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	len;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write (fd, &s[i], 1);
-		i ++;
-	}
+	len = 0;
+	while (s[len] != '\0')
+		len ++;
+	return (len);
 }
 
-size_t count_print_s(va_list ap)
-{
-    char    *ret_str;
-
-    ret_str = va_arg(ap, char *);
-    ft_putstr_fd(ret_str, 1);
-    return (strlen(ret_str));
-}
-
-size_t check_specifier(const char *str, size_t i, va_list ap)
+size_t  check_specifier(const char *str, size_t i, va_list ap)
 {
     if (str[i + 1] == 's')
-    {
         return (count_print_s(ap));
-    }
     else if (str[i + 1] == '%')
     {
         write (1, "%", 1);
         return (1);
     }
+    else if (str[i + 1] == 'c')
+        return (count_print_c(ap));
+    else if (str[i + 1] == 'd')
+        return (count_print_d(ap));
     else
         return (0);
 }
@@ -59,7 +48,7 @@ int ft_printf(const char *str, ...)
     i = 0;
     ret = 0;
     va_start(ap, str);
-    while (i < strlen(str))
+    while (i < ft_strlen(str))
     {
         if (str[i] == '%' )
         {

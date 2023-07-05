@@ -18,5 +18,8 @@
 # include <stdarg.h>
 
 int ft_printf(const char *str, ...);
+size_t count_print_s(va_list ap);
+size_t count_print_c(va_list ap);
+size_t count_print_d(va_list ap);
 
 #endif
