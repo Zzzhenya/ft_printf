@@ -11,5 +11,5 @@ size_t count_print_c(va_list ap)
         c = (char)ret;
         return(write(1, &c, sizeof(char)));
     }
-    return (0);
+    return (1);
 }

@@ -27,6 +27,8 @@ size_t count_print_s(va_list ap)
     char    *ret_str;
 
     ret_str = va_arg(ap, char *);
+    if (!ret_str)
+    	ret_str = "(null)";
     ft_putstr_fd(ret_str, 1);
     return (ft_strlen(ret_str));
 }

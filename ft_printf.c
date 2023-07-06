@@ -33,7 +33,7 @@ size_t  check_specifier(const char *str, size_t i, va_list ap)
     }
     else if (str[i + 1] == 'c')
         return (count_print_c(ap));
-    else if (str[i + 1] == 'd')
+    else if (str[i + 1] == 'd' || str[i + 1] == 'i')
         return (count_print_d(ap));
     else
         return (0);
