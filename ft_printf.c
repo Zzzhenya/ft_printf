@@ -22,7 +22,7 @@ static size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-size_t  check_specifier(const char *str, size_t i, va_list ap)
+static int  check_specifier(const char *str, int i, va_list ap)
 {
     if (str[i + 1] == 's')
         return (print_str(ap));
@@ -42,13 +42,13 @@ size_t  check_specifier(const char *str, size_t i, va_list ap)
 int ft_printf(const char *str, ...)
 {
     va_list     ap;
-    size_t     i;
-    size_t     ret;
+    int     i;
+    int     ret;
 
     i = 0;
     ret = 0;
     va_start(ap, str);
-    while (i < ft_strlen(str))
+    while (i < (int)ft_strlen(str))
     {
         if (str[i] == '%' )
         {

@@ -22,7 +22,7 @@ static size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-size_t print_str(va_list ap)
+int print_str(va_list ap)
 {
     char    *ret_str;
 
@@ -30,5 +30,5 @@ size_t print_str(va_list ap)
     if (!ret_str)
     	ret_str = "(null)";
     ft_putstr_fd(ret_str, 1);
-    return (ft_strlen(ret_str));
+    return ((int)ft_strlen(ret_str));
 }

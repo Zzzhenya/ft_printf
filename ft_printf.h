@@ -18,8 +18,8 @@
 # include <stdarg.h>
 
 int ft_printf(const char *str, ...);
-size_t print_str(va_list ap);
-size_t print_chr(va_list ap);
-size_t print_int(va_list ap);
+int print_str(va_list ap);
+int print_chr(va_list ap);
+int print_int(va_list ap);
 
 #endif

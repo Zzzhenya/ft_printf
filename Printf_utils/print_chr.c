@@ -1,15 +1,11 @@
 #include "../ft_printf.h"
 
-size_t print_chr(va_list ap)
+int print_chr(va_list ap)
 {
     int    ret;
-    char    c;
+    unsigned char    c;
 
     ret = va_arg(ap, int);
-    if (ret)
-    {
-        c = (char)ret;
-        return(write(1, &c, sizeof(char)));
-    }
-    return (1);
+    c = (unsigned char)ret;
+    return(write(1, &c, sizeof(char)));
 }
