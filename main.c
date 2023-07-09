@@ -8,19 +8,37 @@ int main(void)
 	char *s;
 	s = 0;
 	printf("\n====== Test without specifier ======\n\n");
-
-	printf("				Test01:	basic \"\":\n");
+/*
+	//seg fault
+	printf("				Test00:	0:\n");
+	printf("  Ft: %d\n", ft_printf(0));
+	printf("  Or: %d\n", printf(0));
+*/
+	printf("				Test01:	\"\":\n");
 	printf("  Ft: %d\n", ft_printf(""));
 	printf("  Or: %d\n", printf(""));
-	printf("				Test02: 0:\n");
-	printf("  Or: %d\n",printf("%s", s));
-	printf("  Ft: %d\n",ft_printf("%s", s));
-	printf("				Test03:	basic Hello World!:\n");
+	printf("				Test02:	Hello World!:\n");
 	printf("  Ft: %d\n", ft_printf("Hello World!"));
 	printf("  Or: %d\n", printf("Hello World!"));
-	printf("				Test04:	%%s	and %%:\n");
+	printf("				Test03:	\"\\:\n");
+	printf("  Ft: %d\n", ft_printf("\"\\"));
+	printf("  Or: %d\n", printf("\"\\"));
+
+	printf("\n====== Tests for %%s ======\n\n");
+
+	printf("				Test01: 0:\n");
+	printf("  Or: %d\n",printf("%s", s));
+	printf("  Ft: %d\n",ft_printf("%s", s));
+	printf("				Test02: \"%%s\",\"\":\n");
+	printf("  Or: %d\n",printf("%s", ""));
+	printf("  Ft: %d\n",ft_printf("%s", ""));
+	printf("				Test03:	%%s	and %%:\n");
 	printf("  Ft: %d\n", ft_printf("Hello!%sA%%BB", "World!"));
 	printf("  Or: %d\n", printf("Hello!%sA%%BB", "World!"));
+	printf("				Test04: \"{%%s}\", \"\":\n");
+	printf("  Or: %d\n",printf("{%s}", ""));
+	printf("  Ft: %d\n",ft_printf("{%s}", ""));
+	
 // %c
 	printf("\n====== Tests for %%c ======\n\n");
 
@@ -40,10 +58,15 @@ int main(void)
 // %d
 	printf("\n====== Tests for %%d ======\n\n");
 
+
+	printf("				Test00: -1:\n");
+	printf("  Ft: %d\n", ft_printf("%d", -1));
+	printf("  Or: %d\n", printf("%d", -1));
+
 	printf("				Test01: 42:\n");
 	printf("  Ft: %d\n", ft_printf("%d", 42));
 	printf("  Or: %d\n", printf("%d", 42));
-	printf("				Test02: 0:\n");
+	printf("				Test02: \"%%d\", 0:\n");
 	printf("  Ft: %d\n", ft_printf("%d", 0));
 	printf("  Or: %d\n", printf("%d", 0));
 	printf("				Test03: -42:\n");
@@ -58,7 +81,7 @@ int main(void)
 	printf("				Test06: +42:\n");
 	printf("  Ft: %d\n", ft_printf("%d", +42));
 	printf("  Or: %d\n", printf("%d", +42));
-	printf("				Test07: 0 :\n");
+	printf("				Test07: \"Hello%%d\", 0 :\n");
 	printf("  Ft: %d\n", ft_printf("Hello%d", 0));
 	printf("  Or: %d\n", printf("Hello%d", 0));
 	printf("				Test08: Hexa 0x000000a7:\n");
@@ -67,6 +90,10 @@ int main(void)
 	printf("				Test09: Leading zeros 0000005 :\n");
 	printf("  Ft: %d\n", ft_printf("%d", 0000005));
 	printf("  Or: %d\n", printf("%d", 0000005));
+/*	printf("				Test10: printf(0) :\n");
+	printf("  Ft: %d\n", ft_printf(ft_printf(0)));
+	printf("  Or: %d\n", printf(printf(0)));
+*/
 
 	printf("\n====== Tests for %%i ======\n\n");
 
