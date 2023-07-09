@@ -1,8 +1,8 @@
 NAME	=	libftprintf.a
 
-SRC		=	count_print_c.c \
-			count_print_s.c \
-			count_print_d.c	\
+SRC		=	Printf_utils/print_chr.c \
+			Printf_utils/print_str.c \
+			Printf_utils/print_int.c \
 			ft_printf.c 
 
 all: $(NAME)

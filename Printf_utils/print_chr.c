@@ -1,6 +1,6 @@
-#include "libftprintf.h"
+#include "../ft_printf.h"
 
-size_t count_print_c(va_list ap)
+size_t print_chr(va_list ap)
 {
     int    ret;
     char    c;

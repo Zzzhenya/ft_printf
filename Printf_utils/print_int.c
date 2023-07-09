@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "../ft_printf.h"
 
 static int	count_digits(int n)
 {
@@ -45,7 +45,7 @@ static char	*ft_itoa(int n)
 	return (ptr);
 }
 
-size_t count_print_d(va_list ap)
+size_t print_int(va_list ap)
 {
     int    ret;
     int     len;

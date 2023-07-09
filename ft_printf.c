@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static size_t	ft_strlen(const char *s)
 {
@@ -25,16 +25,16 @@ static size_t	ft_strlen(const char *s)
 size_t  check_specifier(const char *str, size_t i, va_list ap)
 {
     if (str[i + 1] == 's')
-        return (count_print_s(ap));
+        return (print_str(ap));
     else if (str[i + 1] == '%')
     {
         write (1, "%", 1);
         return (1);
     }
     else if (str[i + 1] == 'c')
-        return (count_print_c(ap));
+        return (print_chr(ap));
     else if (str[i + 1] == 'd' || str[i + 1] == 'i')
-        return (count_print_d(ap));
+        return (print_int(ap));
     else
         return (0);
 }

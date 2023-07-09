@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "../ft_printf.h"
 
 static void	ft_putstr_fd(char *s, int fd)
 {
@@ -8,7 +8,7 @@ static void	ft_putstr_fd(char *s, int fd)
 	while (s[i] != '\0')
 	{
 		write (fd, &s[i], 1);
-		i ++;
+		i++;
 	}
 }
 
@@ -18,11 +18,11 @@ static size_t	ft_strlen(const char *s)
 
 	len = 0;
 	while (s[len] != '\0')
-		len ++;
+		len++;
 	return (len);
 }
 
-size_t count_print_s(va_list ap)
+size_t print_str(va_list ap)
 {
     char    *ret_str;
 
