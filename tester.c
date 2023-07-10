@@ -151,6 +151,55 @@ static int tests_for_ints(char *str)
 	return(0);
 }
 
+static int tests_for_pointers(void)
+{
+	/*
+	
+	int int_min = INT_MIN;
+	long long_max = LONG_MAX;
+	*/
+
+	// %p
+	printf("\n====== Tests for %%p =================================\n\n");
+
+	char a = 'A';
+	char *char_ptr;
+	char_ptr = malloc(sizeof(char*));
+
+	printf("		  Or Heap :  %d \n", printf("%p", char_ptr));
+	printf("		  Ft Heap :  %d \n",ft_printf("%p", char_ptr));
+	printf("		  Or Stack : %d \n", printf("%p", &a));
+	printf("		  Ft Stack : %d \n",ft_printf("%p", &a));
+
+	free(char_ptr);
+/*
+	printf("		  Or Char ptr: %d\n", printf("%p\n", &a));
+	printf("		  Ft Char ptr: %d\n", ft_printf("%p\n", &a));
+	printf("		  Or int ptr: %d\n", printf("%p\n",&int_min));
+//	printf("		  Ft int ptr: %d\n", ft_printf("%p\n",&int_min));
+	printf("		  Or long ptr: %d\n", printf("%p\n",&long_max));
+//	printf("		  Ft long ptr: %d\n", ft_printf("%p\n",&long_max));
+
+	char *char_ptr;
+	char_ptr = malloc(sizeof(char*));
+	printf("		  Or Char ptr: %d : Heap \n", printf("%p\n", char_ptr));
+//	printf("		  Ft Char ptr: %d : Heap \n", ft_printf("%p\n", char_ptr));
+	free(char_ptr);
+	int *int_ptr;
+	int_ptr = malloc(sizeof(int*));
+	printf("		  Or Int ptr: %d : Heap \n", printf("%p\n", int_ptr));
+//	printf("		  Ft Int ptr: %d : Heap \n", ft_printf("%p\n", int_ptr));
+	free(int_ptr);
+	long long *long_ptr;
+	long_ptr = malloc(sizeof(long long *));
+	printf("		  Or long long ptr: %d : Heap \n", printf("%p\n", long_ptr));
+//	printf("		  Ft long long ptr: %d : Heap \n", ft_printf("%p\n", long_ptr));
+	free(long_ptr);	
+*/
+	printf("\n\n\n");
+	return(0);
+}
+
 int main(void)
 {
 	tests_without_specifier();
@@ -159,5 +208,7 @@ int main(void)
 	printf("\n====== Tests for %%i and %%d ======\n\n");
 	tests_for_ints("%d\n");
 	tests_for_ints("%i\n");
+//	tests_for_pointers();
+
 	return (0);
 }

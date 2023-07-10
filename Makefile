@@ -3,6 +3,7 @@ NAME	=	libftprintf.a
 SRC		=	Printf_utils/print_chr.c \
 			Printf_utils/print_str.c \
 			Printf_utils/print_int.c \
+			Printf_utils/print_ptr.c \
 			ft_printf.c 
 
 all: $(NAME)
@@ -19,4 +20,12 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all fclean re clean
+tests:
+	make fclean
+	make
+	cc tester.c libftprintf.a
+	./a.out
+	make fclean
+	rm a.out
+
+.PHONY: all fclean re clean tests

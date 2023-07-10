@@ -43,16 +43,13 @@ static int	count_digits(int n)
 	return (count);
 }
 
-
-int print_int(va_list ap)
+int print_int(int ret)
 {
-    int    ret;
 	int			digits;
 	long int	nbr;
 
-    ret = va_arg(ap, int);
-    nbr = ret;
-    digits = count_digits(nbr);
+	nbr = ret;
+	digits = count_digits(nbr);
 	ft_putnbr_fd(nbr, 1);
-    return (digits);
+	return (digits);
 }

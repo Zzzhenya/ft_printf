@@ -17,9 +17,10 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
-int ft_printf(const char *str, ...);
-int print_str(va_list ap);
-int print_chr(va_list ap);
-int print_int(va_list ap);
+int	ft_printf(const char *str, ...);
+int	print_str(char *next);
+int	print_chr(int next);
+int print_int(int next);
+int	print_ptr(va_list ap);
 
 #endif
