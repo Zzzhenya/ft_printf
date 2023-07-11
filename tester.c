@@ -172,7 +172,16 @@ static int tests_for_pointers(void)
 	printf("		  Ft Stack : %d \n",ft_printf("%p", &a));
 	printf("		  Or Stack : %d \n", printf("%p", NULL));
 	printf("		  Ft Stack : %d \n", ft_printf("%p", NULL));
+	printf("		  Or long_max : %d \n", printf("%x", LONG_MAX));
+	printf("		  Ft long_max : %d \n", ft_printf("%x", LONG_MAX));
 
+/*
+	TEST(25, print(" %x ", LONG_MIN));
+	TEST(26, print(" %x ", UINT_MAX));
+	TEST(27, print(" %x ", ULONG_MAX));
+	TEST(28, print(" %x ", 9223372036854775807LL));
+	TEST(29, print(" %x %x %x %x %x %x %x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
+	*/
 	free(char_ptr);
 /*
 	printf("		  Or Char ptr: %d\n", printf("%p\n", &a));

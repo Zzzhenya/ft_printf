@@ -20,6 +20,5 @@ int print_ptr(unsigned long int nbr, int format)
 	int			digits;
 
     digits = write (1, "0x", 2);
-	digits = digits + print_hex(nbr, format);
-	return (digits);
+	return (digits + print_hex(nbr, format));
 }

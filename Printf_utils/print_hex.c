@@ -2,7 +2,7 @@
 
 static int	hex_len(unsigned long int num)
 {
-	long int	len;
+	int	len;
 
 	len = 0;
 	while (num != 0)
@@ -38,6 +38,8 @@ static void	ft_put_hex(unsigned long int num, int format)
 
 int print_hex(unsigned long int nbr, int format)
 {
-    ft_put_hex(nbr, format);
-	return (hex_len(nbr));
+    unsigned long int val;
+    val = (unsigned long int)nbr;
+    ft_put_hex(val, format);
+	return (hex_len(val));
 }

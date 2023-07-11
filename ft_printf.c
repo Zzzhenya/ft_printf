@@ -35,7 +35,7 @@ static int	check_specifier(const char *str, int i, va_list ap)
 	else if (str[i + 1] == 'p')
 		return (print_ptr(va_arg(ap, unsigned long int), str[i + 1]));
 	else if (str[i + 1 ] == 'x' || str[i + 1 ] == 'X')
-		return (print_hex(va_arg(ap, unsigned long int), str[i + 1]));
+		return (print_hex((unsigned int)va_arg(ap, unsigned long int), str[i + 1]));
 	else
 		return (0);
 }
