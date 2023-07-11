@@ -4,6 +4,7 @@ SRC		=	Printf_utils/print_chr.c \
 			Printf_utils/print_str.c \
 			Printf_utils/print_int.c \
 			Printf_utils/print_ptr.c \
+			Printf_utils/print_hex.c \
 			ft_printf.c 
 
 all: $(NAME)

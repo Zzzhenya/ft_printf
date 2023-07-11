@@ -56,7 +56,7 @@ char	*ft_itoa(int n)
 {
 	char		*ptr;
 	int			digits;
-	long int	nbr;
+	long int	nbr;]
 
 	digits = count_digits(n);
 	nbr = n;

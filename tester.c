@@ -170,6 +170,8 @@ static int tests_for_pointers(void)
 	printf("		  Ft Heap :  %d \n",ft_printf("%p", char_ptr));
 	printf("		  Or Stack : %d \n", printf("%p", &a));
 	printf("		  Ft Stack : %d \n",ft_printf("%p", &a));
+	printf("		  Or Stack : %d \n", printf("%p", NULL));
+	printf("		  Ft Stack : %d \n", ft_printf("%p", NULL));
 
 	free(char_ptr);
 /*
@@ -208,7 +210,7 @@ int main(void)
 	printf("\n====== Tests for %%i and %%d ======\n\n");
 	tests_for_ints("%d\n");
 	tests_for_ints("%i\n");
-//	tests_for_pointers();
+	tests_for_pointers();
 
 	return (0);
 }
