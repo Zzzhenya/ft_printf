@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sde-silv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sde-silv <sde-silv@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:46:29 by sde-silv          #+#    #+#             */
 /*   Updated: 2023/06/28 14:46:34 by sde-silv         ###   ########.fr       */
@@ -36,6 +36,8 @@ static int	check_specifier(int spec, va_list ap)
 		return (print_ptr(va_arg(ap, unsigned long int), spec));
     else if (spec == 'x' || spec == 'X')
 		return (print_hex((unsigned int)va_arg(ap, unsigned long int), spec));
+	else if (spec == 'u')
+		return (print_uint(va_arg(ap, unsigned int)));
 	else
 		return (0);
 }

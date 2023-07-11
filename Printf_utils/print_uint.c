@@ -5,14 +5,9 @@ static void	ft_putchar_fd(char c, int fd)
 	write (fd, &c, 1);
 }
 
-static void	ft_putnbr_fd(long int n, int fd)
+static void	ft_putnbr_fd(unsigned long int n, int fd)
 {
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
-	}
-	else if (n > 9)
+	if (n > 9)
 	{
 		ft_putnbr_fd(n / 10, fd);
 		ft_putchar_fd(n % 10 + '0', fd);
@@ -21,18 +16,15 @@ static void	ft_putnbr_fd(long int n, int fd)
 		ft_putchar_fd(n + '0', fd);
 }
 
-static int	count_digits(int n)
+static int	count_digits(unsigned int n)
 {
 	int			count;
-	long int	nb;
+	unsigned long int	nb;
 
 	count = 0;
 	nb = n;
-	if (nb <= 0)
-	{
-		count ++;
-		nb = nb * -1;
-	}
+	if (nb == 0)
+	    return (1);
 	while (nb)
 	{
 		nb = nb / 10;
@@ -41,10 +33,10 @@ static int	count_digits(int n)
 	return (count);
 }
 
-int print_int(int ret)
+int print_uint(unsigned int ret)
 {
 	int			digits;
-	long int	nbr;
+	unsigned long int	nbr;
 
 	nbr = ret;
 	digits = count_digits(nbr);

@@ -3,6 +3,16 @@
 #include <string.h>
 #include "ft_printf.h"
 
+static void test_passed(void)
+{
+    printf("								= OK =\n");
+}
+
+static void test_failed(void)
+{
+    printf("								= OOOOOOOOOOOOOO =\n");
+}
+
 static int tests_without_specifier(void)
 {
 	printf("\n====== Test without specifier ===========================\n\n");
@@ -12,6 +22,7 @@ static int tests_without_specifier(void)
 	printf("  Ft: %d\n", ft_printf(0));
 	printf("  Or: %d\n", printf(0));
 */
+
 	printf("			Test01:	\"\":");
 	if (ft_printf("") == printf(""))
 		printf("				= OK =\n");
@@ -19,14 +30,14 @@ static int tests_without_specifier(void)
 		printf("					= OO =\n");
 	printf("			Test02:	Hello World!:\n");
 	if (ft_printf("Hello World!\n") == printf("Hello World!\n"))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("			Test03:	\"\\:\n");
 	if (ft_printf("\"\\\n") == printf("\"\\\n"))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	return (0);
 }
 
@@ -39,24 +50,24 @@ static int tests_for_strings(void)
 
 	printf("			Test01: 0:\n");
 	if (ft_printf("%s\n", s) == printf("%s\n", s))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("			Test02: \"%%s\",\"\":\n");
 	if (ft_printf("%s\n", "") == printf("%s\n", ""))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("			Test03:	%%s	and %%:\n");
 	if ( ft_printf("Hello!%sA%%BB\n", "World!") == printf("Hello!%sA%%BB\n", "World!"))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("			Test04: \"{%%s}\", \"\":\n");
 	if ( ft_printf("{%s}\n", "") == printf("{%s}\n", ""))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	return(0);
 }
 
@@ -67,20 +78,20 @@ static int tests_for_chars(void)
 
 	printf("			Test01: ascii range :\n");
 	if ( ft_printf("Hello%c\n", '!') == printf("Hello%c\n", '!'))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("			Test02: out of ascii range:\n");
 	if ( ft_printf("Hello%c\n", -10) == printf("Hello%c\n", -10))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 
 	printf("			Test03: 0 :\n");
 	if (  ft_printf("Hello%c\n", 0) == printf("Hello%c\n", 0))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("			Test04: string :\n");
 	printf("  Ft: %d\n", ft_printf("Hello%c\n", "252"));
 	printf("						= Different from printf =\n");
@@ -95,55 +106,56 @@ static int tests_for_ints(char *str)
 
 	printf("				Test01: 42:\n");
 	if ( ft_printf(str, 42) == printf(str, 42))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("				Test02: \"%%d\", 0:\n");
 	if (ft_printf(str, 0)  == printf(str, 0))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("				Test03: -42:\n");
 	if (ft_printf(str, -42) == printf(str, -42))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("				Test04: INT_MAX:\n");
 	if (ft_printf(str, INT_MAX) == printf(str, INT_MAX))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("				Test05: INT_MIN:\n");
 	if (ft_printf(str, INT_MIN) == printf(str, INT_MIN))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("				Test06: +42:\n");
 	if (ft_printf(str, +42) == printf(str, +42))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("				Test07: \"Hello%%d\", 0 :\n");
 	if (str[1] == 'd')
 		if (ft_printf("Hello%d\n", 0) == printf("Hello%d\n", 0))
-			printf("								= OK =\n");
+			test_passed();
 		else
-			printf("								= OO =\n");
+			test_failed();
 	else
 		if (ft_printf("Hello%i\n", 0) == printf("Hello%i\n", 0))
-			printf("								= OK =\n");
+			test_passed();
 		else
-			printf("								= OO =\n");
-	printf("				Test08: Hexa 0x000000a7:\n");
+			test_failed();
+	printf("				Test08: ptr 0x000000a7:\n");
 	if (ft_printf(str, 0x000000a7) == printf(str, 0x000000a7))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
 	printf("				Test09: Leading zeros 0000005 :\n");
 	if (ft_printf(str, 0000005) == printf(str, 0000005))
-		printf("								= OK =\n");
+		test_passed();
 	else
-		printf("								= OO =\n");
+		test_failed();
+
 /*	printf("				Test10: printf(0) :\n");
 	printf("  Ft: %d\n", ft_printf(ft_printf(0)));
 	printf("  Or: %d\n", printf(printf(0)));
@@ -151,63 +163,107 @@ static int tests_for_ints(char *str)
 	return(0);
 }
 
-static int tests_for_pointers(void)
+static int tests_for_pointers(char *str)
 {
+	printf("\n====== Tests for %% %c =================================\n\n", str[1]);
+
+	printf("				Test01: 0:\n");
+	if (ft_printf(str, 0) == printf(str, 0))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test02: 42:\n");
+	if (ft_printf(str, 42) == printf(str, 42))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test03: :\"\"\n");
+	if (ft_printf(str, "") == printf(str, ""))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test04: -42:\n");
+	if (ft_printf(str, -42) == printf(str, -42))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test05: \'a\':\n");
+	if (ft_printf(str, 'a') == printf(str, 'a'))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test06: \'a\':\n");
+	if (ft_printf(str, 'a') == printf(str, 'a'))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test07: \"Hello\":\n");
+	if (ft_printf(str, "Hello") == printf(str, "Hello"))
+		test_passed();
+	else
+		test_failed();
+	char    *ptr;
+	printf("				Test08: uninitialized stack ptr:\n");
+	if (ft_printf(str, ptr) == printf(str, ptr))
+		test_passed();
+	else
+		test_failed();
+	ptr = malloc(sizeof(char));
+	printf("				Test09: heap ptr:\n");
+	if (ft_printf(str, ptr) == printf(str, ptr))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test10: INT_MAX:\n");
+	if (ft_printf(str, INT_MAX) == printf(str, INT_MAX))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test11: INT_MIN:\n");
+	if (ft_printf(str, INT_MIN) == printf(str, INT_MIN))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test12: LONG_MIN:\n");
+	if (ft_printf(str, LONG_MIN) == printf(str, LONG_MIN))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test13: LONG_MAX:\n");
+	if (ft_printf(str, LONG_MAX) == printf(str, LONG_MAX))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test14: ULONG_MAX:\n");
+	if (ft_printf(str, ULONG_MAX) == printf(str, ULONG_MAX))
+		test_passed();
+	else
+		test_failed();
+		printf("				Test14: 5000:\n");
+	if (ft_printf(str, -5000) == printf(str, -5000))
+		test_passed();
+	else
+		test_failed();
 	/*
-	
-	int int_min = INT_MIN;
-	long long_max = LONG_MAX;
-	*/
+	printf("				Test15: \"%%p%%p%%p\\n\", ptr, 0, ptr:\n");
+	if (ft_printf("%p%p%p\n", ptr, 0, ptr) == printf("%p\n", ptr, 0, ptr))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test15: \"%%p%%p%%p\\n\", 0, ptr, ptr:\n");
+	if (ft_printf("%p%p%p\n", 0, ptr, ptr) == printf("%p\n", 0, ptr, ptr))
+		test_passed();
+	else
+		test_failed();
+	printf("				Test15: \"%%p%%p%%p\\n\", ptr, ptr, 0:\n");
+	if (ft_printf("%p%p%p\n", ptr, ptr, 0) == printf("%p\n", ptr, ptr, 0))
+		test_passed();
+	else
+		test_failed();
+    */
 
-	// %p
-	printf("\n====== Tests for %%p =================================\n\n");
-
-	char a = 'A';
-	char *char_ptr;
-	char_ptr = malloc(sizeof(char*));
-
-	printf("		  Or Heap :  %d \n", printf("%p", char_ptr));
-	printf("		  Ft Heap :  %d \n",ft_printf("%p", char_ptr));
-	printf("		  Or Stack : %d \n", printf("%p", &a));
-	printf("		  Ft Stack : %d \n",ft_printf("%p", &a));
-	printf("		  Or Stack : %d \n", printf("%p", NULL));
-	printf("		  Ft Stack : %d \n", ft_printf("%p", NULL));
-	printf("		  Or long_max : %d \n", printf("%x", LONG_MAX));
-	printf("		  Ft long_max : %d \n", ft_printf("%x", LONG_MAX));
-
-/*
-	TEST(25, print(" %x ", LONG_MIN));
-	TEST(26, print(" %x ", UINT_MAX));
-	TEST(27, print(" %x ", ULONG_MAX));
-	TEST(28, print(" %x ", 9223372036854775807LL));
-	TEST(29, print(" %x %x %x %x %x %x %x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
-	*/
-	free(char_ptr);
-/*
-	printf("		  Or Char ptr: %d\n", printf("%p\n", &a));
-	printf("		  Ft Char ptr: %d\n", ft_printf("%p\n", &a));
-	printf("		  Or int ptr: %d\n", printf("%p\n",&int_min));
-//	printf("		  Ft int ptr: %d\n", ft_printf("%p\n",&int_min));
-	printf("		  Or long ptr: %d\n", printf("%p\n",&long_max));
-//	printf("		  Ft long ptr: %d\n", ft_printf("%p\n",&long_max));
-
-	char *char_ptr;
-	char_ptr = malloc(sizeof(char*));
-	printf("		  Or Char ptr: %d : Heap \n", printf("%p\n", char_ptr));
-//	printf("		  Ft Char ptr: %d : Heap \n", ft_printf("%p\n", char_ptr));
-	free(char_ptr);
-	int *int_ptr;
-	int_ptr = malloc(sizeof(int*));
-	printf("		  Or Int ptr: %d : Heap \n", printf("%p\n", int_ptr));
-//	printf("		  Ft Int ptr: %d : Heap \n", ft_printf("%p\n", int_ptr));
-	free(int_ptr);
-	long long *long_ptr;
-	long_ptr = malloc(sizeof(long long *));
-	printf("		  Or long long ptr: %d : Heap \n", printf("%p\n", long_ptr));
-//	printf("		  Ft long long ptr: %d : Heap \n", ft_printf("%p\n", long_ptr));
-	free(long_ptr);	
-*/
 	printf("\n\n\n");
+	free(ptr);
 	return(0);
 }
 
@@ -219,7 +275,10 @@ int main(void)
 	printf("\n====== Tests for %%i and %%d ======\n\n");
 	tests_for_ints("%d\n");
 	tests_for_ints("%i\n");
-	tests_for_pointers();
+	tests_for_pointers("%p\n");
+	tests_for_pointers("%x\n");
+	tests_for_pointers("%X\n");
+	tests_for_pointers("%u\n");
 
 	return (0);
 }
