@@ -11,7 +11,7 @@ static int	hex_len(unsigned long int num)
 		num = num / 16;
 	}
 	if (len == 0)
-	    return (1);
+		return (1);
 	return (len);
 }
 
@@ -36,10 +36,11 @@ static void	ft_put_hex(unsigned long int num, int format)
 	}
 }
 
-int print_hex(unsigned long int nbr, int format)
+int	print_hex(unsigned long int nbr, int format)
 {
-    unsigned long int val;
-    val = (unsigned long int)nbr;
-    ft_put_hex(val, format);
+	unsigned long int	val;
+
+	val = (unsigned long int)nbr;
+	ft_put_hex(val, format);
 	return (hex_len(val));
 }

@@ -41,7 +41,7 @@ static int	count_digits(int n)
 	return (count);
 }
 
-int print_int(int ret)
+int	print_int(int ret)
 {
 	int			digits;
 	long int	nbr;

@@ -18,13 +18,13 @@ static void	ft_putnbr_fd(unsigned long int n, int fd)
 
 static int	count_digits(unsigned int n)
 {
-	int			count;
+	int					count;
 	unsigned long int	nb;
 
 	count = 0;
 	nb = n;
 	if (nb == 0)
-	    return (1);
+		return (1);
 	while (nb)
 	{
 		nb = nb / 10;
@@ -33,9 +33,9 @@ static int	count_digits(unsigned int n)
 	return (count);
 }
 
-int print_uint(unsigned int ret)
+int	print_uint(unsigned int ret)
 {
-	int			digits;
+	int					digits;
 	unsigned long int	nbr;
 
 	nbr = ret;

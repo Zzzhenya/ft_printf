@@ -20,8 +20,8 @@
 int	ft_printf(const char *str, ...);
 int	print_str(char *next);
 int	print_chr(int next);
-int print_int(int next);
-int print_uint(unsigned int next);
+int	print_int(int next);
+int	print_uint(unsigned int next);
 int	print_ptr(unsigned long int next, int format);
 int	print_hex(unsigned long int next, int format);
 #endif
