@@ -22,20 +22,27 @@ static size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-static int	check_specifier(const char *str, int i, va_list ap)
+//static int	check_specifier(const char *str, int i, va_list ap)
+static int	check_specifier(int spec, va_list ap)
 {
-	if (str[i + 1] == 's')
+//	if (str[i + 1] == 's')
+	if (spec == 's')
 		return (print_str((char *)va_arg(ap, char *)));
-	else if (str[i + 1] == '%')
+//	else if (str[i + 1] == '%')
+	else if (spec == '%')
 		return (write (1, "%", 1));
-	else if (str[i + 1] == 'c')
+//	else if (str[i + 1] == 'c')
+    else if (spec == 'c')
 		return (print_chr(va_arg(ap, int)));
-	else if (str[i + 1] == 'd' || str[i + 1] == 'i')
+	else if (spec == 'd' || spec == 'i')
+//	else if (str[i + 1] == 'd' || str[i + 1] == 'i')
 	    return (print_int(va_arg(ap, int)));
-	else if (str[i + 1] == 'p')
-		return (print_ptr(va_arg(ap, unsigned long int), str[i + 1]));
-	else if (str[i + 1 ] == 'x' || str[i + 1 ] == 'X')
-		return (print_hex((unsigned int)va_arg(ap, unsigned long int), str[i + 1]));
+//	else if (str[i + 1] == 'p')
+    else if (spec == 'p')
+		return (print_ptr(va_arg(ap, unsigned long int), spec));
+//	else if (str[i + 1 ] == 'x' || str[i + 1 ] == 'X')
+    else if (spec == 'x' || spec == 'X')
+		return (print_hex((unsigned int)va_arg(ap, unsigned long int), spec));
 	else
 		return (0);
 }
@@ -52,7 +59,11 @@ int	ft_printf(const char *str, ...)
 	while (i < (int)ft_strlen(str))
 	{
 		if (str[i] == '%')
-			ret = ret + check_specifier(str, i++, ap);
+		{
+//			ret = ret + check_specifier(str, i++, ap);
+            i++;
+            ret = ret + check_specifier(str[i], ap);
+        }
 		else
 			ret = ret + write(1, &str[i], 1);
 		i++;
