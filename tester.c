@@ -282,6 +282,5 @@ int main(void)
 	tests_for_pointers("%x\n");
 	tests_for_pointers("%X\n");
 	tests_for_pointers("%u\n");
-
 	return (0);
-}
+}	
