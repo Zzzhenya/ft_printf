@@ -39,7 +39,7 @@ static int	check_specifier(int spec, va_list ap)
 	else if (spec == 'u')
 		return (print_uint(va_arg(ap, unsigned int)));
 	else
-		return (0);
+		return (-1);
 }
 
 int	ft_printf(const char *str, ...)
