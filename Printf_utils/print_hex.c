@@ -5,13 +5,13 @@ static int	hex_len(unsigned long int num)
 	int	len;
 
 	len = 0;
+	if (num == 0)
+		return (1);
 	while (num != 0)
 	{
 		len++;
 		num = num / 16;
 	}
-	if (len == 0)
-		return (1);
 	return (len);
 }
 
