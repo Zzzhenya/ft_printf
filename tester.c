@@ -167,9 +167,9 @@ static int tests_for_pointers(char *str)
 {
 	printf("\n====== Tests for %% %c =================================\n\n", str[1]);
 
-	printf("				Test00: 0:\n");
-	printf( "Ft :\n%d\n", ft_printf("Ft : %p %p %p \n", 0, 0, 0));
-	printf( "Or :\n%d\n", printf("Or : %p %p %p \n", 0, 0, 0));
+//	printf("				Test00: 0:\n");
+//	printf( "Ft :\n%d\n", ft_printf("Ft : %p %p %p \n", 0, 0, 0));
+//	printf( "Or :\n%d\n", printf("Or : %p %p %p \n", 0, 0, 0));
 	printf("				Test01: 0:\n");
 	if (ft_printf(str, 0) == printf(str, 0))
 		test_passed();
@@ -273,15 +273,15 @@ static int tests_for_pointers(char *str)
 int main(void)
 {
 	tests_without_specifier();
-//	tests_for_strings();
-//	tests_for_chars();
-//	printf("\n====== Tests for %%i and %%d ======\n\n");
-//	tests_for_ints("%d\n");
-//	tests_for_ints("%i\n");
+	tests_for_strings();
+	tests_for_chars();
+	printf("\n====== Tests for %%i and %%d ======\n\n");
+	tests_for_ints("%d\n");
+	tests_for_ints("%i\n");
 	tests_for_pointers("%p\n");
-//	tests_for_pointers("%x\n");
-//	tests_for_pointers("%X\n");
-//	tests_for_pointers("%u\n");
+	tests_for_pointers("%x\n");
+	tests_for_pointers("%X\n");
+	tests_for_pointers("%u\n");
 
 	return (0);
 }

@@ -26,7 +26,7 @@ tests:
 	make fclean
 	make
 	cc tester.c libftprintf.a
-	./a.out | cat -e
+	./a.out
 	make fclean
 	rm a.out
 
