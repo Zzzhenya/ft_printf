@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
+/*
 static void	ft_putchar_fd(char c, int fd)
 {
 	write (fd, &c, 1);
@@ -32,7 +32,7 @@ static void	ft_putnbr_fd(long int n, int fd)
 	else
 		ft_putchar_fd(n + '0', fd);
 }
-
+*/
 static int	count_digits(int n)
 {
 	int			count;

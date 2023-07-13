@@ -11,17 +11,17 @@
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
+/*
 static void	ft_putchar_fd(char c, int fd)
 {
 	write (fd, &c, 1);
 }
-
-static void	ft_putnbr_fd(unsigned long int n, int fd)
+*/
+static void	ft_putunbr_fd(unsigned long int n, int fd)
 {
 	if (n > 9)
 	{
-		ft_putnbr_fd(n / 10, fd);
+		ft_putunbr_fd(n / 10, fd);
 		ft_putchar_fd(n % 10 + '0', fd);
 	}
 	else
@@ -52,6 +52,6 @@ int	print_uint(unsigned int ret)
 
 	nbr = ret;
 	digits = count_digits(nbr);
-	ft_putnbr_fd(nbr, 1);
+	ft_putunbr_fd(nbr, 1);
 	return (digits);
 }

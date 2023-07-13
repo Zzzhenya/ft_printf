@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
+/*
 static void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
@@ -33,6 +33,7 @@ static size_t	ft_strlen(const char *s)
 		len++;
 	return (len);
 }
+*/
 
 int	print_str(char *ret_str)
 {

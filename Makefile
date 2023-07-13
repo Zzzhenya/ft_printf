@@ -11,13 +11,18 @@ SRC		=	Printf_utils/print_chr.c \
 all: $(NAME)
 
 $(NAME):
+	$(MAKE) -C ./Libft
+	cp Libft/libft.a ${NAME}
+	ar rcs ${NAME} ${OBJS}
 	cc -c -Wall -Werror -Wextra $(SRC)
 	ar rc $(NAME) *.o
 
 clean:
+	$(MAKE) clean -C ./Libft
 	rm -f *.o
 
 fclean: clean
+	$(MAKE) fclean -C ./Libft
 	rm -f $(NAME)
 
 re: fclean all

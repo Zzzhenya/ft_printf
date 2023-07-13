@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+/*
 static size_t	ft_strlen(const char *s)
 {
 	size_t	len;
@@ -21,7 +22,7 @@ static size_t	ft_strlen(const char *s)
 		len ++;
 	return (len);
 }
-
+*/
 static int	check_specifier(int spec, va_list ap)
 {
 	if (spec == 's')
