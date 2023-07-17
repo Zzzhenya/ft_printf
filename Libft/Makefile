@@ -52,7 +52,7 @@ all: $(NAME)
 
 $(NAME):
 	cc -c -Wall -Werror -Wextra $(SRC)
-	ar rc $(NAME) *.o
+	ar rcs $(NAME) *.o
 
 clean:
 	rm -f *.o
