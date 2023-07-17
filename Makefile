@@ -1,29 +1,40 @@
-NAME	=	libftprintf.a
+CC = cc
 
-SRC		=	Printf_utils/print_chr.c \
+CFLAGS = -Wall -Wextra -Werror
+
+NAME = libftprintf.a
+
+SRCS = 		Printf_utils/print_chr.c \
 			Printf_utils/print_str.c \
 			Printf_utils/print_int.c \
 			Printf_utils/print_ptr.c \
 			Printf_utils/print_hex.c \
 			Printf_utils/print_uint.c \
-			ft_printf.c 
+			ft_printf.c
 
-all: $(NAME)
+OBJS = $(SRCS:.c=.o)
 
-$(NAME):
+# $@ - target
+# $^ - all dependent
+# $< - first dependent
+
+all: ${NAME}
+
+${NAME}: $(OBJS)
 	$(MAKE) -C ./Libft
 	cp Libft/libft.a ${NAME}
 	ar rcs ${NAME} ${OBJS}
-	cc -c -Wall -Werror -Wextra $(SRC)
-	ar rc $(NAME) *.o
+	
+.c.o:
+	${CC} ${CFLAGS} -c $^ -o $@
 
 clean:
 	$(MAKE) clean -C ./Libft
-	rm -f *.o
+	rm -f ${OBJS}
 
 fclean: clean
 	$(MAKE) fclean -C ./Libft
-	rm -f $(NAME)
+	rm -f ${NAME}
 
 re: fclean all
 
