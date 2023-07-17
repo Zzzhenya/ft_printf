@@ -29,8 +29,7 @@ fclean: clean
 re: fclean all
 
 tests:
-	make fclean
-	make
+	make re
 	cc tester.c libftprintf.a
 	./a.out
 	make fclean
