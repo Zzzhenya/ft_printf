@@ -8,19 +8,27 @@ SRCS = 		Printf_utils/print_chr.c \
 			Printf_utils/print_uint.c \
 			ft_printf.c
 
+OBJS = 		print_chr.o \
+			print_str.o \
+			print_int.o \
+			print_ptr.o \
+			print_hex.o \
+			print_uint.o \
+			ft_printf.o
+
 all: $(NAME)
 
-$(NAME): libft
+$(NAME): Libft/libft.a
 	cc -c -Wall -Werror -Wextra $(SRCS)
-	ar rcs $(NAME) *.o
+	ar rcs $(NAME) $(OBJS)
 
-libft:
+Libft/libft.a:
 	$(MAKE) -C ./Libft
 	cp Libft/libft.a $(NAME)
 
 clean:
 	$(MAKE) clean -C ./Libft
-	rm -f *.o
+	rm -f $(OBJS)
 
 fclean: clean
 	$(MAKE) fclean -C ./Libft
@@ -35,4 +43,4 @@ tests:
 	make fclean
 	rm a.out
 
-.PHONY: all fclean re clean tests libft
+.PHONY: all fclean re clean tests

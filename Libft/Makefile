@@ -12,7 +12,7 @@
 
 NAME	= 	libft.a
 
-SRC 	= 	ft_bzero.c \
+SRCS 	= 	ft_bzero.c \
 			ft_isdigit.c \
 			ft_putchar_fd.c \
 			ft_strlcat.c \
@@ -48,14 +48,16 @@ SRC 	= 	ft_bzero.c \
 			ft_split.c \
 			ft_itoa.c
 
+OBJS	=	$(SRCS:.c=.o)
+
 all: $(NAME)
 
 $(NAME):
-	cc -c -Wall -Werror -Wextra $(SRC)
-	ar rcs $(NAME) *.o
+	cc -c -Wall -Werror -Wextra $(SRCS)
+	ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -f *.o
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
