@@ -72,7 +72,7 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	int		str;
 
-	arr = malloc(sizeof(char *) * (arr_length(s, c) + 1));
+	arr = calloc((arr_length(s, c) + 1), sizeof(char *));
 	if (!arr)
 		return (NULL);
 	i = 0;

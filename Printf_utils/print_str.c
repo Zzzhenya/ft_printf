@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sde-silv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sde-silv <sde-silv@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 17:09:00 by sde-silv          #+#    #+#             */
 /*   Updated: 2023/07/12 17:09:01 by sde-silv         ###   ########.fr       */
@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
 /*
 static void	ft_putstr_fd(char *s, int fd)
 {
@@ -34,7 +35,6 @@ static size_t	ft_strlen(const char *s)
 	return (len);
 }
 */
-
 int	print_str(char *ret_str)
 {
 	if (!ret_str)

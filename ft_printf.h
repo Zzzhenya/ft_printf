@@ -13,8 +13,6 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-//# include <unistd.h>
-//# include <stdlib.h>
 # include "./Libft/libft.h"
 # include <stdarg.h>
 
@@ -25,4 +23,5 @@ int	print_int(int next);
 int	print_uint(unsigned int next);
 int	print_ptr(unsigned long int next, int format);
 int	print_hex(unsigned long int next, int format);
+
 #endif
