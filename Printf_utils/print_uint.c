@@ -46,12 +46,12 @@ static int	count_digits(unsigned int n)
 	return (count);
 }
 
-int	print_uint(unsigned int ret)
+int	print_uint(unsigned int next)
 {
 	int					digits;
 	unsigned long int	nbr;
 
-	nbr = ret;
+	nbr = next;
 	digits = count_digits(nbr);
 	ft_putunbr_fd(nbr, 1);
 	return (digits);

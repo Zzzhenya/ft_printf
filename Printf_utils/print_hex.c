@@ -48,11 +48,11 @@ static void	ft_put_hex(unsigned long int num, int format)
 	}
 }
 
-int	print_hex(unsigned long int nbr, int format)
+int	print_hex(unsigned long int next, int format)
 {
 	unsigned long int	val;
 
-	val = (unsigned long int)nbr;
+	val = (unsigned long int)next;
 	ft_put_hex(val, format);
 	return (hex_len(val));
 }

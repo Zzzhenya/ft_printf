@@ -35,10 +35,10 @@ static size_t	ft_strlen(const char *s)
 	return (len);
 }
 */
-int	print_str(char *ret_str)
+int	print_str(char *next)
 {
-	if (!ret_str)
-		ret_str = "(null)";
-	ft_putstr_fd(ret_str, 1);
-	return ((int)ft_strlen(ret_str));
+	if (!next)
+		next = "(null)";
+	ft_putstr_fd(next, 1);
+	return ((int)ft_strlen(next));
 }

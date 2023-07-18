@@ -54,12 +54,12 @@ static int	count_digits(int n)
 	return (count);
 }
 
-int	print_int(int ret)
+int	print_int(int next)
 {
 	int			digits;
 	long int	nbr;
 
-	nbr = ret;
+	nbr = next;
 	digits = count_digits(nbr);
 	ft_putnbr_fd(nbr, 1);
 	return (digits);

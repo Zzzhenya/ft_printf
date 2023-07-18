@@ -12,10 +12,10 @@
 
 #include "../ft_printf.h"
 
-int	print_chr(int ret)
+int	print_chr(int next)
 {
 	unsigned char	c;
 
-	c = (unsigned char)ret;
+	c = (unsigned char)next;
 	return (write (1, &c, sizeof(char)));
 }

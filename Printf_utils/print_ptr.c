@@ -13,27 +13,27 @@
 #include "../ft_printf.h"
 #ifdef __linux__
 
-int	print_ptr(unsigned long int nbr, int format)
+int	print_ptr(unsigned long int next, int format)
 {
 	int	digits;
 
-	if (nbr == 0)
+	if (next == 0)
 		return (print_str("(nil)"));
 	else
 	{
 		digits = write (1, "0x", 2);
-		return (digits + print_hex(nbr, format));
+		return (digits + print_hex(next, format));
 	}
 }
 
 #else
 
-int	print_ptr(unsigned long int nbr, int format)
+int	print_ptr(unsigned long int next, int format)
 {
 	int	digits;
 
 	digits = write (1, "0x", 2);
-	return (digits + print_hex(nbr, format));
+	return (digits + print_hex(next, format));
 }
 
 #endif
